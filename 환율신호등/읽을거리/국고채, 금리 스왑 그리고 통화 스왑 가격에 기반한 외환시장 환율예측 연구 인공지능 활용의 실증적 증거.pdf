@@ -1,0 +1,65 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>논문, 전자책, 학술정보 통합서비스 - DBpia</title>
+<link rel="icon" href="../favicon.ico" />
+<link rel="stylesheet" type="text/css" href="../../../css/common.css" />
+<link rel="stylesheet" type="text/css" href="../../../css/layout.css" />
+<link rel="stylesheet" type="text/css" href="../../../css/jquery-ui-1.12.1.css" />
+<link rel="stylesheet" type="text/css" href="../../../css/jquery-ui.structure.css" />
+<script type="text/javascript" src="../../../js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../../js/jquery-ui-1.12.1.min.js"></script>
+<script type="text/javascript" src="../../../js/jquery.slimscroll.min.js"></script>
+<script type="text/javascript" src="../../../js/common.js"></script>
+</head>
+
+<body style="background-color:#fff">
+<div id="responseJson" style="display: none;">
+	{
+	
+	"last":"last"
+	}
+</div>
+<div class="wrap">
+	<!-- 콘텐츠 (시작) -->
+	<div class="container">
+		<div class="contents" id="contents">
+			<div class="errorWrap">
+				<div class="errorHead">
+					<h1 class="logo"><a href="#none"><span class="blind">DBpia</span></a></h1>
+				</div>
+				<div class="errorBody">
+					<p class="symbol"><span>NOTICE</span></p>
+					<p class="text">
+						<span class="tit">잘못된 접근입니다.</span>
+						<span class="desc">올바른 방법으로 다시 시도해주세요.</span>
+					</p>
+				</div>
+				<!--  div class="errorFoot">
+					<button class="btn btnText subColor large" onclick="parentClose();"><span>CLOSE</span></button>
+				</div-->
+			</div>
+		</div>
+	</div><!-- 콘텐츠 (끝) -->
+</div>
+
+</body>
+</html>
+
+<script>
+	let jsonStr = document.getElementById('responseJson').textContent;
+	if(typeof jsonStr === "string" && jsonStr !== ""){
+		jsonStr = jsonStr.replace(/\n/g, '')
+							.replace(/\t/g, '');
+		const jsonData = JSON.parse(jsonStr);
+		alert((jsonData.FAIL).replace(/<br\/>/g, '\n'));
+		window.history.back();
+	}
+</script>
